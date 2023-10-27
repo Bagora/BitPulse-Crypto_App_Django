@@ -3,10 +3,7 @@ certifi
 chardet
 dj-database-url
 Django
-django-heroku
-gunicorn
 idna
-psycopg2
 pytz
 requests
 sqlparse
