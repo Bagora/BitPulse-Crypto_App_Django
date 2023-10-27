@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        {% if notfound %}
+            <div class="alert alert-danger">
+                {{ notfound }}
+            </div>
+        {% else %}
+            {% if crypto.Response %}
+                <div class="alert alert-primary">
+                    Sorry, {{ quote }} doesn't exist. Please enter a valid cryptocurrency symbol like btc,eth,bnb.
+                </div>
+            {% endif %}
+
+            <div class="row">
+                {% for key, value in crypto.DISPLAY.items %}
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-header text-white" style="background-color: #2c1608;">
+                                <h3 class="card-title text-center">{{ key }}</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="coin-details-box text-center">
+                                    <p><strong>Price</strong>: {{ value.USD.PRICE }}</p>
+                                    <p><strong>Day High</strong>: {{ value.USD.HIGHDAY }}</p>
+                                    <p><strong>Day Low</strong>: {{ value.USD.LOWDAY }}</p>
+                                    <p><strong>Change 24h</strong>: {{ value.USD.CHANGE24HOUR }}</p>
+                                    <p><strong>Market Cap</strong>: {{ value.USD.MKTCAP }}</p>
+                                    <p><strong>Total Supply</strong>: {{ value.USD.SUPPLY }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    <style>
+        .coin-details-box {
+            padding: 5px;
+            border: 2px solid #1a2421;
+            border-radius: 5px;
+        }
+    </style>
+{% endblock content %}

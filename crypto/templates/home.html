@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .content-box {
+        border: 2px solid #222;
+        padding: 20px;
+        border-radius: 10px;
+        background: linear-gradient(#2c1608,#123524, #002147, #0f0f0f, #1c352d);
+        color: #fff;
+        margin-bottom: 20px; /* Add margin between the divs */
+    }
+
+    .small-text {
+        font-size: 14px;
+    }
+</style>
+
+<div class="container text-center">
+    <div class="content-box">
+        <h1 class="mt-4 mb-3">Crypto News</h1>
+        <p class="small-text">Welcome to Bitpulse, Your Source for Cryptocurrency Prices and News.</p>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-light table-bordered table-hover text-center">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">24h High</th>
+                    <th scope="col">24h Low</th>
+                    <th scope="col">Market Cap</th>
+                    <th scope="col">Total Supply</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in price.DISPLAY.items %}
+                <tr>
+                    <td>
+                        <strong>{{ key }}</strong>
+                    </td>
+                    <td>{{ value.USD.PRICE }}</td>
+                    <td>{{ value.USD.HIGHDAY }}</td>
+                    <td>{{ value.USD.LOWDAY }}</td>
+                    <td>{{ value.USD.MKTCAP }}</td>
+                    <td>{{ value.USD.SUPPLY }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for x in api.Data %}
+            <div class="col-md-6 mb-4">
+                <div class="card border-dark">
+                    <div class="card-body text-center">
+                        <img src="{{ x.imageurl }}" alt="{{ x.source }}" class="rounded-circle img-thumbnail" style="max-width: 250px; max-height: 250px;">
+                        <div class="headline-box">
+                            <h5 class="card-title">{{ x.title }}</h5>
+                        </div>
+                        <p class="card-text text-justify">{{ x.body | truncatewords_html:150 }}</p>
+                        <a href="{{ x.url }}" class="btn btn-primary d-block mx-auto" target="_blank">Read More</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    /* Add styling for the dark border */
+    .card.border-dark {
+        border: 2px solid #2c1608;
+    }
+
+    /* Add spacing between news cards */
+    .card {
+        margin: 10px;
+    }
+</style>
+
+{% endblock content %}
