@@ -14,8 +14,5 @@ This app is built using Django and integrates with the Crypto-Compare API to fet
 
 Explore BitPulse and dive into the world of cryptocurrencies today!
 
-#Deployment Link
-https://bitpulse.vercel.app/
-
 #Get your own API key here
-https://min-api.cryptocompare.com/
+[Crypto-Compare]([https://min-api.cryptocompare.com/])
